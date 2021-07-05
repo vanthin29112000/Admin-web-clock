@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://kit.fontawesome.com/19793a3053.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- js -->
+    <script src="./js/DOM.js"></script>
+    <script src="./js/apiChart.js"></script>
+    <script src="./js/AddEventListener.js"></script>
+    <!-- CDN Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+</head>
+<body>
+    
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+          apiKey: "AIzaSyC7w2UrAVOMsgxfOf7_ydEUCxlIDuVisDE",
+          authDomain: "web-dong-ho.firebaseapp.com",
+          projectId: "web-dong-ho",
+          storageBucket: "web-dong-ho.appspot.com",
+          messagingSenderId: "248919919186",
+          appId: "1:248919919186:web:3e7544e22ee89a1cfd6d8b",
+          measurementId: "G-SPKKRG2XF7"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        //make a auth and firestore reference
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+        const storage = firebase.storage();
+    </script>
+    <div class="dasboard-admin">
+        <div class="dasboard-admin__left">
+            <div class="dasboard-admin__left--head">
+                <img src="./img/kisspng-logo-font-tesla-inc-typography-car-5cb7a2524c8954.3957115715555385143135.png" alt="">
+            </div>
+            <div class="dasboard-admin__left--body">
+                <div class="item-dasboard" id="item-dasboard__active-selection" onclick="click_show_dashboard()">
+                    <i class="fas fa-chart-line"></i>
+                    <p class="item-dasboard--label">Dashboard</p>
+                </div>
+                <div class="item-dasboard" id="" onclick="click_show_order()">
+                    <i class="fas fa-shopping-bag"></i>
+                    <p class="item-dasboard--label">Order</p>
+                </div>
+                <div class="item-dasboard" onclick="click_product()">
+                    <i class="far fa-clipboard"></i>
+                    <p class="item-dasboard--label">Product</p>
+                </div>
+            </div>
+        </div>
+        <div class="dasboard-admin__right--head">
+            <div class="dasboard-admin__right--head-title">
+                <i class="fas fa-align-justify"></i>
+                <p class="dasboard-admin__right--head-title-p">Dashboard</p>
+            </div>
+            <div class="dasboard-admin__right--head-search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search here">
+            </div>
+            <div class="dasboard-admin__right--head-account-info">
+                <i class="fas fa-user-circle"></i>
+                <div class="account-info__header">
+                    <p class="account-info__header--username">Văn Thìn</p>
+                    <p class="account-info__header--type">Admin</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dasboard-admin__right" style="display: block;">
+            <script>click_show_dashboard()</script>
+        </div>
+    </div>
+    <div class="change-info-product" ></div>
+
+    <div class="change-info-customer-inoder" style="display: none;"></div>
+    <div class="confirm" style="display :none"></div>
+</body>
+</html>
